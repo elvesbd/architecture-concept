@@ -1,6 +1,6 @@
+import Backend from "../util/Backend";
 import Session from "../util/Session";
 import Terminal from "../util/Terminal";
-import CoreFacade from '../../adapters/facade/CoreFacade';
 
 export default async function login() {
   Terminal.title("Login");
@@ -14,8 +14,8 @@ export default async function login() {
       default: "#Senha123",
     });
 
-    const user = await CoreFacade.user.login({ email, password });
-    Session.started(user);
+    const token = await Backend.post("login", { email, password });
+    Session.started(token);
   } catch (error: any) {
     Terminal.error(error);
   }

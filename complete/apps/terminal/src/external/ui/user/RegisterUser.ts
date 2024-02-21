@@ -1,5 +1,5 @@
+import Backend from "../util/Backend";
 import Terminal from "../util/Terminal";
-import CoreFacade from "../../adapters/facade/CoreFacade";
 
 export default async function registerUser() {
   Terminal.title("Registrar Usuário");
@@ -14,7 +14,7 @@ export default async function registerUser() {
       default: "#Senha123",
     });
 
-    await CoreFacade.user.register({ name, email, password });
+    await Backend.post("register", { name, email, password });
     Terminal.success(`User successfully registered!`);
   } catch (error: any) {
     Terminal.error(error);

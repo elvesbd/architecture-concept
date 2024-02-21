@@ -1,5 +1,4 @@
 import Terminal from "../util/Terminal";
-import CoreFacade from "../../adapters/facade/CoreFacade";
 
 export default async function saveCourse() {
   Terminal.title("Salvar Curso");
@@ -8,7 +7,7 @@ export default async function saveCourse() {
     const name = await Terminal.requiredFields("Nome");
     const price = await Terminal.requiredFields("Preço");
 
-    await CoreFacade.course.save({ name, price: +price });
+    //await CoreFacade.course.save({ name, price: +price });
     Terminal.success(`Course successfully save!`);
   } catch (error: any) {
     Terminal.error(error);

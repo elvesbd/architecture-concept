@@ -4,8 +4,9 @@ export default class UserName extends Name {
   constructor(value: string, min: number = 3, max: number = 120) {
     super(value, min, max);
 
-    if (value.split(" ").length < 2)
+    if (value.split(" ").length < 2) {
       throw new Error("The name must have at least one surname!");
+    }
   }
 
   get firstName(): string {

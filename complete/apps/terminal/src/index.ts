@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
 import PrincipalMenu from "./external/ui/menu/PrincipalMenu";
 
-new PrincipalMenu().render()
+dotenv.config();
+new PrincipalMenu().render();

@@ -12,6 +12,10 @@ export default class Session {
     this._token = null;
   }
 
+  static get token() {
+    return this._token;
+  }
+
   static get user() {
     if (!this._token) return null;
     return decode(this._token) as UserResponseDTO;

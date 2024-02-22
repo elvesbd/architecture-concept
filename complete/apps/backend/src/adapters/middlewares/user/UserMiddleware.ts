@@ -9,8 +9,8 @@ export default function UserMiddleware(
 ) {
   return async (req: Request, res: Response, next: NextFunction) => {
     const deniedAccess = () =>
-      res.status(403).json({
-        message: "Acesso negado!",
+      res.status(401).json({
+        message: "Unauthorized!",
       });
 
     try {

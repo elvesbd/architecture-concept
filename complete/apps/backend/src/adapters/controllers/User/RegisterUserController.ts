@@ -1,7 +1,7 @@
 import { Express, Request, Response } from "express";
 import CoreFacade from "../../facade/CoreFacade";
 
-export default class RegisterController {
+export default class RegisterUserController {
   constructor(readonly server: Express) {
     server.post("/register", async (req: Request, res: Response) => {
       try {

@@ -2,7 +2,7 @@ import { Express, Request, Response } from "express";
 import CoreFacade from "../../facade/CoreFacade";
 import JWT from "../../../external/cryptography/JWT";
 
-export default class LoginController {
+export default class LoginUserController {
   constructor(
     readonly server: Express,
     readonly jwt: JWT

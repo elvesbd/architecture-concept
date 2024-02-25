@@ -44,8 +44,6 @@ export default class Terminal {
   }
 
   static async table(data: any[]) {
-    console.log(Object.keys(data[0]));
-
     terminal("\n");
     terminal.table([
       Object.keys(data[0]),

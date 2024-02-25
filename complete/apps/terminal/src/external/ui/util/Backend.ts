@@ -22,7 +22,7 @@ export default class Backend {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        ...(token ? { Authorization: `Bearer: ${token}` } : {}),
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
     });
     return await response.json();

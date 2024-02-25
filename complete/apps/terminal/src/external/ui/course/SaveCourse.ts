@@ -1,3 +1,4 @@
+import Backend from "../util/Backend";
 import Terminal from "../util/Terminal";
 
 export default async function saveCourse() {
@@ -7,7 +8,7 @@ export default async function saveCourse() {
     const name = await Terminal.requiredFields("Nome");
     const price = await Terminal.requiredFields("Preço");
 
-    //await CoreFacade.course.save({ name, price: +price });
+    await Backend.post("courses", { name, price: +price });
     Terminal.success(`Course successfully save!`);
   } catch (error: any) {
     Terminal.error(error);

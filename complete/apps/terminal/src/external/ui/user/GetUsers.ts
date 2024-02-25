@@ -6,8 +6,6 @@ export default async function getUsers() {
 
   try {
     const users = await Backend.get("users");
-    console.log("users", users);
-
     Terminal.table(users);
   } catch (error: any) {
     Terminal.error(error);

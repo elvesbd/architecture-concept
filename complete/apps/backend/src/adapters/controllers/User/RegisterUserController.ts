@@ -1,5 +1,6 @@
 import { Express, Request, Response } from "express";
 import CoreFacade from "../../facade/CoreFacade";
+import Errors from "../../../errors/Errors";
 
 export default class RegisterUserController {
   constructor(readonly server: Express) {
@@ -9,9 +10,7 @@ export default class RegisterUserController {
         await CoreFacade.user.register({ name, email, password });
         res.status(201).json({});
       } catch (error) {
-        res
-          .status(500)
-          .json({ message: "Não foi possível registrar o usuário" });
+        res.status(400).json({ errors: Errors.handleErrors(error) });
       }
     });
   }

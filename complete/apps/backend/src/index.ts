@@ -1,7 +1,9 @@
+import FindAllCoursesController from "./adapters/controllers/Course/FindAllCoursesController";
+import RegisterCourseController from "./adapters/controllers/Course/RegisterCourseController";
 import FindAllUserController from "./adapters/controllers/User/FindAllUserController";
 import LoginUserController from "./adapters/controllers/User/LoginUserController";
 import RegisterUserController from "./adapters/controllers/User/RegisterUserController";
-import UserMiddleware from "./adapters/middlewares/user/UserMiddleware";
+import AuthMiddleware from "./adapters/middlewares/auth/AuthMiddleware";
 import app from "./external/api/config";
 import JWT from "./external/cryptography/JWT";
 import UserPrismaRepository from "./external/db/prisma/repositories/user/UserPrismaRepository";
@@ -12,5 +14,7 @@ new LoginUserController(app, jwt);
 new RegisterUserController(app);
 
 // ------------------------------- Private Routes
-const userMiddleware = UserMiddleware(userRepository, jwt);
-new FindAllUserController(app, userMiddleware);
+const authMiddleware = AuthMiddleware(userRepository, jwt);
+new FindAllUserController(app, authMiddleware);
+new FindAllCoursesController(app, authMiddleware);
+new RegisterCourseController(app, authMiddleware);

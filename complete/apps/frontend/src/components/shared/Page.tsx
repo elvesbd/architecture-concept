@@ -16,7 +16,7 @@ export default function Page({ children }: PageProps) {
       navbar={{
         width: 300,
         breakpoint: "sm",
-        collapsed: { mobile: !toggleMobile, desktop: !toggleDesktop },
+        collapsed: { mobile: !mobile, desktop: !desktop },
       }}
     >
       <AppShell.Header className="flex justify-between items-center">

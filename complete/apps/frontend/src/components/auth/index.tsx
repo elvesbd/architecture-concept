@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { useRouter } from "next/navigation";
-import AuthContext from "@/data/context/authContext";
+import useAuthContext from "@/data/hooks/useAuthContext";
 
 type ForceUserAuthProps = {
   readonly children: React.ReactNode;
@@ -8,7 +7,7 @@ type ForceUserAuthProps = {
 
 export default function ForceUserAuth({ children }: ForceUserAuthProps) {
   const router = useRouter();
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
 
   if (!user) {
     router.push("/auth");

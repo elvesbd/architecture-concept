@@ -5,7 +5,7 @@ import { RegisterDTO } from "adapters";
 type UserField = "name" | "email" | "password";
 type Mode = "login" | "register";
 
-export default function useAuthForm() {
+export default function useForm() {
   const [user, setUser] = useState<RegisterDTO>({
     name: "",
     email: "",

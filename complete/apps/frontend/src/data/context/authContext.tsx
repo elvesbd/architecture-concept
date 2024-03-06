@@ -1,12 +1,28 @@
+"use client";
+
+import { UserResponseDTO } from "adapters";
+import { createContext } from "react";
+
 type AuthProviderProps = {
   readonly children: React.ReactNode;
 };
 
+type AuthContextProps = {
+  user: UserResponseDTO | null;
+};
+
+const AuthContext = createContext<AuthContextProps>({} as any);
+
 export function AuthProvider({ children }: AuthProviderProps) {
   return (
-    <div>
-      <h1>Provedor</h1>
+    <AuthContext.Provider
+      value={{
+        user: null,
+      }}
+    >
       {children}
-    </div>
+    </AuthContext.Provider>
   );
 }
+
+export default AuthContext;
